@@ -14,13 +14,13 @@ namespace dotnet.Controllers
         }
 
         [HttpGet("{n}")]
-        public long Get(int n)
+        public ulong Get(int n)
         {
             return _fibService.GetFibN(n);
         }
         
         [HttpGet("fast/{n}")]
-        public long GetFast(int n)
+        public ulong GetFast(int n)
         {
             return _fibService.GetFibNFast(n);
         }

@@ -8,9 +8,9 @@ namespace dotnet.Interfaces
     public interface IFibService
     { // Look at this brackets on another line rubbish, get a hobby instead of hitting return all the time.
         // PascalCase is just so wrong
-        long GetFibN(int n);
+        ulong GetFibN(int n);
 
         // Faster version, using closed form algo
-        long GetFibNFast(int n);
+        ulong GetFibNFast(int n);
     }
 }

@@ -9,7 +9,7 @@ namespace dotnet.Services
     {
         double phi = (1 + Math.Sqrt(5)) / 2; 
         // Slow but uses enumerable so that's cool init
-        public long GetFibN(int n)
+        public ulong GetFibN(int n)
         {
             var iter = GetFibonacci();
             
@@ -19,19 +19,19 @@ namespace dotnet.Services
         }
 
         // Fun maths is fun!
-        public long GetFibNFast(int n)
+        public ulong GetFibNFast(int n)
         {
-            return (long) Math.Round(Math.Pow(phi, n) / Math.Sqrt(5));
+            return (ulong) Math.Round(Math.Pow(phi, n) / Math.Sqrt(5));
         }
 
-        private IEnumerable<long> GetFibonacci()
+        private IEnumerable<ulong> GetFibonacci()
         {
-            long previousVal1 = 0;
-            long previousVal2 = 1;
+            ulong previousVal1 = 0;
+            ulong previousVal2 = 1;
 
             while (true)
             {
-                long nextVal = previousVal1 + previousVal2;
+                ulong nextVal = previousVal1 + previousVal2;
                 previousVal1 = previousVal2;
                 previousVal2 = nextVal;
                 yield return nextVal;
