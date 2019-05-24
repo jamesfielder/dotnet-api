@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:sdk AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build-env
 
 WORKDIR /app
 COPY dotnet.csproj ./
@@ -7,9 +7,9 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-#FROM microsoft/dotnet:aspnetcore-runtime
-#
-#WORKDIR /app
-#COPY --from=build-env /app/out .
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 
-ENTRYPOINT ["dotnet", "run"]
+WORKDIR /app
+COPY --from=build-env /app/out .
+
+ENTRYPOINT ["dotnet", "dotnet.dll"]
